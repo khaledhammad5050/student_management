@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="student_student_form_view" model="ir.ui.view">
+        <field name="name">student.student.form.view</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <form string="Student Management Male">
+                <sheet>
+                    <group col="2" colspan="4">
+                        <div>
+                            <field name="image" widget="image"/>
+                        </div>
+                        <br/>
+                        <h1>
+                            <label for="name" string="Name"/>
+                            <field name="name"/>
+                        </h1>
+                        <h2>
+                            <label for="uni_no" string="Ministry University NO."/>
+                            <field name="uni_no"/>
+                            <label for="seat_no" string="Seat NO."/>
+                            <field name="seat_no"/>
+                        </h2>
+                    </group>
+                    <group col="4" colspan="4">
+                        <field name="active"/>
+                        <field name="dob"/>
+                        <field name="age"/>
+                        <field name="gender" widget="radio"/>
+                        <field name="fdate"/>
+                        <field name="ldate"/>
+                        <field name="regfees"/>
+                        <field name="tutfees"/>
+                        <field name="totfees"/>
+                        <field name="ref_link"/>
+                    </group>
+                    <notebook>
+                        <page string="School Result Details">
+                            <field name="results_ids"/>
+                            <tree>
+<!--                                <field name="subject_id"/>-->
+                            </tree>
+                        </page>
+                        <page string="Other Information">
+                            <separator string="Age"/>
+                            <field name="age"/>
+                            <separator string="Registration Fees"/>
+                            <field name="regfees"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="student_student_tree_view" model="ir.ui.view">
+        <field name="name">student.student.tree.view</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <tree string="Student Management Tree View" colors="green:age == '25';blue:age == '26'">
+                <field name="name"/>
+                <field name="age"/>
+                <field name="active"/>
+                <field name="state"/>
+                <field name="uni_no"/>
+                <field name="seat_no"/>
+                <field name="gender"/>
+                <field name="totfees" sum="Total Fees"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="student_student_search_view" model="ir.ui.view">
+       <field name="name">student.student.search.view</field>
+       <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <search string="Student Management Search View">
+                <field name="age" string="Age" domain="[()]"/>
+                <field name="name" string="Name"  />
+            </search>
+        </field>
+    </record>
+
+    <record id="student_student_female_view_action" model="ir.actions.act_window">
+        <field name="name">Student Female Management</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">student.student</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            <!-- Add Text Here -->
+          </p><p>
+            <!-- More details about what a user can do with this object will be OK -->
+          </p>
+        </field>
+    </record>
+
+    <record id="student_student_male_view_action" model="ir.actions.act_window">
+        <field name="name">Student Male Management</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">student.student</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            <!-- Add Text Here -->
+          </p><p>
+            <!-- More details about what a user can do with this object will be OK -->
+          </p>
+        </field>
+    </record>
+
+    <data>
+      <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+      <menuitem id="student_student_root" name="Student Management" sequence="10"/>
+      <!-- This Menu Item Must have a parent -->
+      <menuitem id="student_student_gender_categ" name="Student Management" parent="student_student_root" sequence="1"/>
+      <!-- This Menu Item must have a parent and an action -->
+      <menuitem id="student_student_male_categ" name="Student Male" parent="student_student_gender_categ" action="student_student_male_view_action" sequence="1"/>
+      <!-- This Menu Item must have a parent and an action -->
+      <menuitem id="student_student_female_categ" name="Student Female" parent="student_student_gender_categ" action="student_student_female_view_action" sequence="2"/>
+    </data>
+</odoo>
