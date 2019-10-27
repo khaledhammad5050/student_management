@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="degree_detail_form_view" model="ir.ui.view">
+            <field name="name">degree.detail.form.view</field>
+            <field name="model">degree.detail</field>
+            <field name="arch" type="xml">
+                <form string="Degrees Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="dorf_id"/>
+                            <field name="dord_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="degree_detail_tree_view" model="ir.ui.view">
+            <field name="name">degree.detail.tree.view</field>
+            <field name="model">degree.detail</field>
+            <field name="arch" type="xml">
+                <tree string="Degrees Tree">
+                    <field name="name"/>
+                    <field name="dorf_id"/>
+                    <field name="dord_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="degree_detail_search_view" model="ir.ui.view">
+           <field name="name">degree.detail.search.view</field>
+           <field name="model">degree.detail</field>
+            <field name="arch" type="xml">
+                <search string="Degrees Search">
+                    <field name="name"/>
+                    <field name="dorf_id"/>
+                    <field name="dord_id"/>
+                </search>
+           </field>
+        </record>
+
+        <record id="degree_detail_view_action" model="ir.actions.act_window">
+            <field name="name">Degrees Details</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">degree.detail</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+
+       <!-- This Menu Item Must have a parent -->
+       <menuitem id="student_configuration_categ" name="Configuration and Log" parent="student_student_root" sequence="11"/>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="student_degree_details_categ" name="" parent="student_configuration_categ" action="degree_detail_view_action" sequence="1"/>
+       <!-- This Menu Item must have a parent and an action -->
+       <menuitem id="student_audit_log_categ" name="" parent="student_configuration_categ" action="" sequence="2"/>
+
+    </data>
+</odoo>

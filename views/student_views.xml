@@ -9,7 +9,7 @@
                 <sheet>
                     <group col="2" colspan="4">
                         <div>
-                            <field name="image" widget="image"/>
+                            <field name="image" widget="image" class="oe_avatar"/>
                         </div>
                         <br/>
                         <h1>
@@ -28,25 +28,32 @@
                         <field name="dob"/>
                         <field name="age"/>
                         <field name="gender" widget="radio"/>
+                        <field name="responsible_id"/>
                         <field name="fdate"/>
                         <field name="ldate"/>
                         <field name="regfees"/>
                         <field name="tutfees"/>
+                        <field name="degree_id"/>
                         <field name="totfees"/>
                         <field name="ref_link"/>
                     </group>
                     <notebook>
                         <page string="School Result Details">
-                            <field name="results_ids"/>
-                            <tree>
-<!--                                <field name="subject_id"/>-->
-                            </tree>
+                            <field name="results_ids">
+                                <tree editable="bottom"> 
+                                    <field name="subject_id"/>
+                                    <field name="result"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="subject_id"/>
+                                        <field name="result"/>
+                                    </group>
+                                </form>
+                            </field>
                         </page>
                         <page string="Other Information">
-                            <separator string="Age"/>
-                            <field name="age"/>
-                            <separator string="Registration Fees"/>
-                            <field name="regfees"/>
+                            <field name="hobbies_ids"/>
                         </page>
                     </notebook>
                 </sheet>
@@ -78,7 +85,43 @@
             <search string="Student Management Search View">
                 <field name="age" string="Age" domain="[()]"/>
                 <field name="name" string="Name"  />
+<!--                Search Filter by in Views-->
+                <filter name="by_gender_male" string="Male" domain="[('gender','=','male')]"/>
+                <filter name="by_gender_female" string="Female" domain="[('gender','=','female')]"/>
+<!--                Search group by in Views-->
+                <filter name="group_by_gender_male" string="Gender" context="{'group_by':'gender'}"/>
+                <filter name="group_by_degree_id" string="Degree" context="{'group_by':'degree_id'}"/>
             </search>
+        </field>
+    </record>
+
+    <record id="student_student_calendar_view" model="ir.ui.view">
+        <field name="name">student.student.calendar.view</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <calendar date_start="dob" date_stop="ldate" string="Student Calender" color="name">
+                <field name="name"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="student_student_gantt_view" model="ir.ui.view">
+        <field name="name">student.student.gantt.view</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <gantt string="Student Gantt" date_start="dob" date_stop="ldate" >
+<!--                <field name="name"/>-->
+            </gantt>
+        </field>
+    </record>
+
+    <record id="student_student_graph_view" model="ir.ui.view">
+        <field name="name">student.student.graph.view</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <graph string="Student Graph">
+                <field name="name"/>
+            </graph>
         </field>
     </record>
 
@@ -86,7 +129,8 @@
         <field name="name">Student Female Management</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">student.student</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,calendar,gantt,graph</field>
+        <field name="domain">[('gender','=','female')]</field>
         <field name="help" type="html">
           <p class="oe_view_nocontent_create">
             <!-- Add Text Here -->
@@ -100,7 +144,8 @@
         <field name="name">Student Male Management</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">student.student</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,calendar,gantt,graph</field>
+        <field name="domain">[('gender','=','male')]</field>
         <field name="help" type="html">
           <p class="oe_view_nocontent_create">
             <!-- Add Text Here -->

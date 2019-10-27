@@ -1,2 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_student_student_student_student,student_student_student.student_student_student,model_student_student,,1,1,1,1
+schoolresults_subject_schoolresults_subject,schoolresults_subject.studentschoolresults_subject,model_schoolresults_subject,,1,1,1,1
+schoolresults_details_schoolresults_details,schoolresults_details.schoolresults_details,model_schoolresults_details,,1,1,1,1
+hobbies_details_hobbies_details,hobbies_details.hobbies_details,model_hobbies_details,,1,1,1,1
+dorf_information_dorf_information,dorf_information.dorf_information,model_dorf_information,,1,1,1,1
+dord_information_dord_information,dord_information.dord_information,model_dord_information,,1,1,1,1
+degree_detail_degree_detail,degree_detail.degree_detail,model_degree_detail,,1,1,1,1
