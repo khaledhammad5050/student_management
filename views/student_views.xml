@@ -15,6 +15,8 @@
                         <h1>
                             <label for="name" string="Name"/>
                             <field name="name"/>
+                            <label for="code" string="Code"/>
+                            <field name="code"/>
                         </h1>
                         <h2>
                             <label for="uni_no" string="Ministry University NO."/>
@@ -29,6 +31,8 @@
                         <field name="age"/>
                         <field name="gender" widget="radio"/>
                         <field name="responsible_id"/>
+                        <field name="email"/>
+                        <field name="phone"/>
                         <field name="fdate"/>
                         <field name="ldate"/>
                         <field name="regfees"/>
@@ -54,6 +58,9 @@
                         </page>
                         <page string="Other Information">
                             <field name="hobbies_ids"/>
+                        </page>
+                        <page string="Health issues Details">
+                            <field name="health_notes"/>
                         </page>
                     </notebook>
                 </sheet>
