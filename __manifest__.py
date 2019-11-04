@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'mail'],
 
     # always loaded
     'data': [
@@ -28,6 +28,8 @@
         'views/student_views.xml',
         'views/templates.xml',
         'views/configuration_view.xml',
+        'views/department_information_view.xml',
+        'views/student_audit_log_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

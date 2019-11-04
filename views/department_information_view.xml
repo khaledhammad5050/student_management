@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="dorf_information_form_view" model="ir.ui.view">
+            <field name="name">Faculty Information Form</field>
+            <field name="model">dorf.information</field>
+            <field name="arch" type="xml">
+                <form string="Department Information Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="dorf_information_tree_view" model="ir.ui.view">
+            <field name="name">Faculty Information Tree</field>
+            <field name="model">dorf.information</field>
+            <field name="arch" type="xml">
+                <tree string="Department Information Tree">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="dorf_information_view_action" model="ir.actions.act_window">
+            <field name="name">Faculty Information</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dorf.information</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="dorf_menue_item" name="Faculty Information" parent="student_configuration_categ"
+                  action="dorf_information_view_action" sequence="3"/>
+    </data>
+</odoo>

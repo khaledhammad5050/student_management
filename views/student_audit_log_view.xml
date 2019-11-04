@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="student_audit_log_form" model="ir.ui.view">
+            <field name="name">student.audit.log.form</field>
+            <field name="model">student.audit.log</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="date"/>
+                            <field name="student_info"/>
+                            <field name="status"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="student_audit_log_tree" model="ir.ui.view">
+            <field name="name">student.audit.log.tree</field>
+            <field name="model">student.audit.log</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="user_id"/>
+                    <field name="date"/>
+                    <field name="student_info"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="student_audit_log_view_action" model="ir.actions.act_window">
+            <field name="name">Student Audit Log View</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">student.audit.log</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="student_audit_log_categ" name="Log" parent="student_configuration_categ" action="student_audit_log_view_action" sequence="6"/>
+    </data>
+</odoo>

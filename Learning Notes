@@ -1,8 +1,35 @@
 1- represent multiple values in a many2one field in the view (Degree to register for)
 2- different between context and domain specially in view action.(video 8)
+    2.1- Add context in action view.
 3- Graph view not appeared.
 4- Dealing with views and attributes allocations in XML files.
 5- different between inherit and inherits?
 6- fields.property().
 7- python constraint error (not working).
+8- res_user in ref field.
+9- widget="many2onebutton" (not working).
+10- widget="progressbar" (not working).
+11- different between ATTRS and domain.
+12- fields.Html (not working).
+13- difference between @api.onchange and @api.depends ?
+       Ans: @api.onchange --- work only with the fields in the same view.
+            @api.depends --- work with fields from the same model or others models.
+14- ir.property
+15- Xpath , Xpath attribute (ready on templates)
+16- ORM Methods (4 common)
+    16.1- difference between browse(),search().
+17- Method Overloading & Method overriding
+    17.1- python does not supports method overloading.
+    (Two methods with the same name but different number of parameters).
 
+18- buttons in view style.
+19- smart buttons font awesome.
+    19.1- oe_stat_button : uses this to search for smart button codes.
+20- smart button domain.
+
+uses of domain :
+1- domain with function in py file
+2- domain in field in py
+3- domain in action view.
+
+context use to upload id to open wizrd

@@ -12,6 +12,7 @@
                             <field name="name"/>
                             <field name="dorf_id"/>
                             <field name="dord_id"/>
+                            <field name="degfees"/>
                         </group>
                     </sheet>
                 </form>
@@ -59,9 +60,9 @@
        <!-- This Menu Item Must have a parent -->
        <menuitem id="student_configuration_categ" name="Configuration and Log" parent="student_student_root" sequence="11"/>
        <!-- This Menu Item must have a parent and an action -->
-       <menuitem id="student_degree_details_categ" name="" parent="student_configuration_categ" action="degree_detail_view_action" sequence="1"/>
+       <menuitem id="student_audit_log_categ" name="Degree Details" parent="student_configuration_categ" action="degree_detail_view_action" sequence="2"/>
        <!-- This Menu Item must have a parent and an action -->
-       <menuitem id="student_audit_log_categ" name="" parent="student_configuration_categ" action="" sequence="2"/>
+       <menuitem id="student_degree_details_categ" name="Degree Details" parent="student_configuration_categ" action="degree_detail_view_action" sequence="4"/>
 
     </data>
 </odoo>
