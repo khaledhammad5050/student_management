@@ -30,6 +30,7 @@
         'views/configuration_view.xml',
         'views/department_information_view.xml',
         'views/student_audit_log_view.xml',
+        'wizard/wizard_cala_age_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -7,3 +7,4 @@ dorf_information_dorf_information,dorf_information.dorf_information,model_dorf_i
 dord_information_dord_information,dord_information.dord_information,model_dord_information,,1,1,1,1
 degree_detail_degree_detail,degree_detail.degree_detail,model_degree_detail,,1,1,1,1
 student_audit_log_student_audit_log,student_audit_log.student_audit_log,model_student_audit_log,,1,1,1,1
+wiz_calc_age_wiz_calc_age,wiz_calc_age.wiz_calc_age,model_wiz_calc_age,,1,1,1,1

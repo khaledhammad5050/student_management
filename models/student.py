@@ -45,6 +45,7 @@ class student_student(models.Model):
     degree_id = fields.Many2one(comodel_name="degree.detail", string="Degree to register for", required=False, )
     regfees = fields.Float(string="Registration Fees", default='0.0', )
     dorf_id = fields.Many2one(comodel_name="dorf.information", string="Department of Faculty", required=False, )
+    fac = fields.Char(related="dorf_id.name")
     tutfees = fields.Float(string="Tuition Fees", default='0.0', oldname='x', digits=(6, 2), readonly=True, )
     totfees = fields.Float(string="Total Fees", default='0.0', compute='_get_total_fees', store=True, )
     ref_link = fields.Char(string="External Link", required=False, )

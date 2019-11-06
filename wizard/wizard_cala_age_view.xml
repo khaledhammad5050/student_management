@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="wiz_calc_age_form_view" model="ir.ui.view">
+            <field name="name">wiz.calc.age.form.view</field>
+            <field name="model">wiz.calc.age</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group col="4">
+                            <field name="from_date"/>
+                            <field name="to_date"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="calc_age" type="object" class="oe_highlight oe_inline" string="Calculate Age"/>
+                        or
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="wiz_calc_age_form_view_action" model="ir.actions.act_window">
+            <field name="name">Calculate Age Wizered</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wiz.calc.age</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="wiz_calc_age_categ" name="Wizard Calculate Age" parent="student_student_root"
+                  action="wiz_calc_age_form_view_action" sequence="20"/>
+
+        <act_window
+            name="Calculate Age"
+            res_model="wiz.calc.age"
+            src_model="student.student"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="wiz_calc_age" />
+
+    </data>
+</odoo>

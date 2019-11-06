@@ -6,19 +6,20 @@
         <field name="model">student.student</field>
         <field name="arch" type="xml">
             <form string="Student Management Male">
-                <sheet>
-                    <header>
-                        <button name="generate_seat_no" type="object" string="Generate Seat NO. "
-                                class="oe_highlight oe_inline"/>
-                        <button name="test_x2many" type="object" string="Test X2Many" class="oe_highlight oe_inline"/>
-                        <button name="%(dorf_information_view_action)d" type="action"
-                                string="Department Info" class="oe_highlight oe_inline"/>
-                        <button name="%(student_audit_log_view_action)d" type="action" string="ORM Log" class="oe_highlight oe_inline"/>
-                        <br/>
-                        <field name="state" widget="statusbar"/>
-                    </header>
 
-<!--               Smart Buttons-->
+                <header>
+                    <button name="generate_seat_no" type="object" string="Generate Seat NO. "
+                            class="oe_highlight oe_inline"/>
+                    <button name="test_x2many" type="object" string="Test X2Many" class="oe_highlight oe_inline"/>
+                    <button name="%(dorf_information_view_action)d" type="action"
+                            string="Department Info" class="oe_highlight oe_inline"/>
+                    <button name="%(wiz_calc_age_form_view_action)d" type="action" string="Calculate Age" class="oe_highlight oe_inline"/>
+
+<!--                    <field name="state" widget="statusbar"/>-->
+                </header>
+                <sheet>
+
+                    <!--               Smart Buttons-->
                     <div class="oe_button_box" name="button_box">
 
                         <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
@@ -26,19 +27,19 @@
                         </button>
 
                         <button type="object" class="oe_stat_button" icon="fa-pencil-square-o"
-                            name="_get_total_fees" >
+                                name="_get_total_fees" >
                             <div class="o_form_field o_stat_info">
-                            <span class="o_stat_value">
-                                <field name="totfees" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                            </span>
-                            <span class="o_stat_text">Total Fees</span>
+                                <span class="o_stat_value">
+                                    <field name="totfees" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                </span>
+                                <span class="o_stat_text">Total Fees</span>
                             </div>
                         </button>
 
                         <button type="action" class="oe_stat_button" icon="fa-book"
-                            name="%(dorf_information_view_action)d" context="{'search_default_dorf_id': active_id}">
+                                name="%(dorf_information_view_action)d" context="{'search_default_name': fac}">
                             <div class="o_form_field o_stat_info">
-                            <span class="o_stat_text">Faculty</span>
+                                <span class="o_stat_text">Faculty</span>
                             </div>
                         </button>
 
@@ -48,8 +49,9 @@
                     <group col="2" colspan="4">
                         <div>
                             <field name="image" widget="image" class="oe_avatar"/>
+                            <field name="fac" invisible="1"/>
                         </div>
-<!--                        <br/>-->
+                        <!--                        <br/>-->
                         <!--                        <h1>-->
                         <!--                            <label for="name" string="Name"/>-->
                         <field name="name"/>
@@ -64,7 +66,7 @@
                         <!--                        </h2>-->
                     </group>
                     <group col="4" colspan="4">
-<!--                        <field name="active"/>-->
+                        <!--                        <field name="active"/>-->
                         <field name="dob"/>
                         <field name="age"/>
                         <field name="gender" widget="radio"/>
@@ -143,6 +145,7 @@
             <search string="Student Management Search View">
                 <field name="age" string="Age" domain="[()]"/>
                 <field name="name" string="Name"/>
+                <field name="dorf_id" string="Faculty"/>
                 <!--                Search Filter by in Views-->
                 <filter name="by_gender_male" string="Male" domain="[('gender','=','male')]"/>
                 <filter name="by_gender_female" string="Female" domain="[('gender','=','female')]"/>

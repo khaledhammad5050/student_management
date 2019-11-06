@@ -28,6 +28,17 @@
             </field>
         </record>
 
+        <record id="dorf_information_search_view" model="ir.ui.view">
+           <field name="name">Faculty Information Search</field>
+           <field name="model">dorf.information</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name" string="Faculty" domain="[()]"/>
+                </search>
+           </field>
+        </record>
+
+
         <record id="dorf_information_view_action" model="ir.actions.act_window">
             <field name="name">Faculty Information</field>
             <field name="type">ir.actions.act_window</field>

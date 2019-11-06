@@ -26,6 +26,7 @@
 19- smart buttons font awesome.
     19.1- oe_stat_button : uses this to search for smart button codes.
 20- smart button domain.
+21-Method def calc_age not working in wizard.
 
 uses of domain :
 1- domain with function in py file
